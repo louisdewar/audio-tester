@@ -1,0 +1,24 @@
+%button-common {
+  display: block;
+  color: $light-blue;
+
+  border: 2px solid $light-blue;
+  border-radius: 3px;
+
+  padding: 5px 0;
+
+  cursor: pointer;
+
+  transition: border-color 300ms linear, color 300ms linear, background-color 300ms linear;
+
+  &:hover {
+    border-color: darken(#2ecc71, 10);
+    color: darken(#2ecc71, 10);
+  }
+
+  &.selected {
+    border-color: transparent;
+    background-color: darken($light-blue, 10);
+    color: white;
+  }
+}

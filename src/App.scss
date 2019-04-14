@@ -1,0 +1,13 @@
+@import "styles/_common.scss";
+
+.App {
+  @extend %full-screen-card-list;
+
+  .button {
+    @extend %button-common;
+
+    margin: 50px auto;
+    font-size: 20px;
+    max-width: 200px;
+  }
+}

@@ -1,0 +1,38 @@
+@import "_all.scss";
+
+.Home {
+  position: fixed;
+  top: 0; left: 0; bottom: 0; right: 0;
+  overflow-y: scroll;
+
+  background-color: #74b9ff;
+
+  .Content {
+    position: absolute;
+
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    width: 80%;
+    max-width: 600px;
+
+    h2 {
+      font-size: 30px;
+    }
+
+    .button {
+      @extend %button-common;
+
+      margin: 50px auto;
+      font-size: 20px;
+      max-width: 200px;
+
+      text-decoration: none;
+    }
+
+    .Card {
+      margin: 50px 0;
+      @extend %card;
+    }
+  }
+}
