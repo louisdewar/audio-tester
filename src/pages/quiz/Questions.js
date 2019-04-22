@@ -18,8 +18,10 @@ class Quiz extends Component {
 
   reset() {
     // Pick n different random notes
-    // Be careful: n cannot be greater than the number of notes (this should change)
-    let questions = shuffle(POSSIBLE_NOTES).slice(0, this.props.nQuestions);
+    let questions = shuffle(POSSIBLE_NOTES).slice(0,
+      // If there are more questions picked then there are possible notes then default to the number of notes
+      // TODO: There should be some UI showing this in the quiz settings area
+      this.props.nQuestions <= POSSIBLE_NOTES.length? this.props.nQuestions: POSSIBLE_NOTES.length);
 
     // Generate the random choices for each note
     let question_choices = questions.map(note => {
