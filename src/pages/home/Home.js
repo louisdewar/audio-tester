@@ -5,6 +5,16 @@ import { Link } from "react-router-dom";
 
 
 class Home extends Component {
+
+  play() {
+    document.addEventListener('play', function(e){
+    var audios = document.getElementsByTagName('audio');
+    for(var i = 0, len = audios.length; i < len;i++){
+        if(audios[i] !== e.target){audios[i].pause();}}}, true);
+    var audio = new Audio();
+    audio.src = "/snippets/Bach-Double-viol.mp3"
+    audio.play();
+  }
   render() {
     return (
       <div className="Home">
@@ -21,6 +31,17 @@ class Home extends Component {
 
             <p>This is a very early version of the website, it may not work at all and is likely to change a great deal.</p>
           </div>
+
+          <div className="Card">
+            <h2>Audio PoC</h2>
+            <div className="button" onClick={this.play}>
+              play clip
+            </div>
+            <div className="button" onClick={this.pause}>
+              pause clip
+            </div>
+          </div>
+
           <div className="Card">
             <h2>Are you ready to begin the test?</h2>
 
