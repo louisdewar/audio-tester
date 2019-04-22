@@ -6,12 +6,6 @@ import { Link } from "react-router-dom";
 
 
 class Home extends Component {
-
-  wait(){
-
-  }
-
-
   howlPlay(){
     const sleep = (milliseconds) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
@@ -20,7 +14,11 @@ class Home extends Component {
     src: ['/snippets/Bach-Double-viol.mp3']
     });
     sound.once('load', function(){
-      sound.play();
+      var dur_total = sound.duration()
+      dur_total = dur_total - 20
+      alert(dur_total)
+      var id = sound.play();
+      sound.seek(Math.random() * (dur_total - 20), id)
       sleep(20000).then(() => {
         sound.stop();
       })
