@@ -7,23 +7,25 @@ import { Link } from "react-router-dom";
 
 class Home extends Component {
 
+  wait(){
+
+  }
+
+
   howlPlay(){
+    const sleep = (milliseconds) => {
+    return new Promise(resolve => setTimeout(resolve, milliseconds))
+    }
     var sound = new Howl({
     src: ['/snippets/Bach-Double-viol.mp3']
     });
     sound.once('load', function(){
       sound.play();
-    });
-  }
+      sleep(20000).then(() => {
+        sound.stop();
+      })
 
-  play() {
-    document.addEventListener('play', function(e){
-    var audios = document.getElementsByTagName('audio');
-    for(var i = 0, len = audios.length; i < len;i++){
-        if(audios[i] !== e.target){audios[i].pause();}}}, true);
-    var audio = new Audio();
-    audio.src = "/snippets/Bach-Double-viol.mp3"
-    audio.play();
+    });
   }
   render() {
     return (
