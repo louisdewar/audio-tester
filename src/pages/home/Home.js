@@ -1,10 +1,20 @@
 import React, { Component } from 'react';
+import {Howl} from 'howler';
 import './Home.scss';
 
 import { Link } from "react-router-dom";
 
 
 class Home extends Component {
+
+  howlPlay(){
+    var sound = new Howl({
+    src: ['/snippets/Bach-Double-viol.mp3']
+    });
+    sound.once('load', function(){
+      sound.play();
+    });
+  }
 
   play() {
     document.addEventListener('play', function(e){
@@ -34,7 +44,7 @@ class Home extends Component {
 
           <div className="Card">
             <h2>Audio PoC</h2>
-            <div className="button" onClick={this.play}>
+            <div className="button" onClick={this.howlPlay}>
               play clip
             </div>
             <div className="button" onClick={this.pause}>
