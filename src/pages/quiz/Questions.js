@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Tone from 'tone';
 import classnames from 'classnames';
 
-import {shuffle} from 'common/util';
+import { shuffle, POSSIBLE_NOTES } from 'common/util';
 
 class Quiz extends Component {
   constructor(props) {
@@ -17,8 +17,9 @@ class Quiz extends Component {
   }
 
   reset() {
-    // Pick 5 different random notes
-    let questions = shuffle(POSSIBLE_NOTES).slice(0, 5);
+    // Pick n different random notes
+    // Be careful: n cannot be greater than the number of notes (this should change)
+    let questions = shuffle(POSSIBLE_NOTES).slice(0, this.props.nQuestions);
 
     // Generate the random choices for each note
     let question_choices = questions.map(note => {
@@ -68,7 +69,8 @@ class Quiz extends Component {
         <div className="Card end">
           <p>You scored {nCorrect}/{this.state.responses.length}!</p>
           <br />
-          <div className="button" onClick={this.restartQuiz}>Restart</div>
+          <div className="button button-centre" onClick={this.restartQuiz}>Restart</div>
+          <div className="button button-centre" onClick={this.props.endQuiz}>Change settings</div>
         </div>
       );
     } else {
@@ -77,7 +79,7 @@ class Quiz extends Component {
           <p>Are you ready to end the test?</p>
           <p>Any empty responses will be marked as incorrect.</p>
           <br />
-          <div className="button" onClick={this.completeQuiz}>End quiz</div>
+          <div className="button button-centre" onClick={this.completeQuiz}>End quiz</div>
         </div>
       );
     }
