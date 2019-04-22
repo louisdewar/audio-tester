@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import {Howl} from 'howler';
+import { Howl } from 'howler';
 import './Home.scss';
 
 import { Link } from "react-router-dom";
 
 
 class Home extends Component {
-  howlPlay(){
+  howlPlay() {
     const sleep = (milliseconds) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
     }
