@@ -3,7 +3,6 @@ import './Home.scss';
 
 import { Link } from 'react-router-dom';
 
-
 class Home extends Component {
   render() {
     return (
@@ -14,7 +13,7 @@ class Home extends Component {
 
             <p>1. Once you click the button below you will be taken to another page to complete a quiz.</p>
             <p>2. You will be able to click on a button to hear a note, you will then be able to select between several notes.</p>
-            <p>3. Once you answer all the questions you select 'End quiz' and your answers will be checked.</p>
+            <p>3. Once you answer all the questions you select <code>End quiz</code> and your answers will be checked.</p>
           </div>
           <div className="Card">
             <h2>Status of the website</h2>

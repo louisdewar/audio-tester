@@ -1,3 +1,6 @@
+/* eslint no-console: "off" */
+/* global process */
+
 // This optional code is used to register a service worker.
 // register() is not called by default.
 
