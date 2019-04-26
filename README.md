@@ -5,7 +5,7 @@ A project designed to have quizzes to test your musical ability or lack thereof.
 ## Installing
 
 ### Pre-requisites:
-- Yarn & node installed
+- Yarn & node **lts** installed
 
 ### Steps
 Clone this repo into a directory. Run `yarn install`.
